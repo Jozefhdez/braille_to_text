@@ -34,9 +34,8 @@ def generate_letters(braille: str) -> list[list[str]]:
             break
     
     letter_count = length_braille // 2
-    
     word_matrix = [[] for _ in range(letter_count)] 
- 
+
     plain_text = ""
     for i in braille:
         if i != " " and i != "\n":
@@ -67,3 +66,33 @@ def clean_matrix(word_matrix: list[list[str]]) -> list[list[str]]:
             else:
                 word_matrix[i][j] = "X"
     return word_matrix
+
+def generate_word(word_matrix: list[list[str]]) -> str:
+    return ''.join(braille_dict.get(tuple(row), '?') for row in word_matrix)
+
+braille_dict = {
+    ('O', 'X', 'X', 'X', 'X', 'X'): 'A', ('O', 'X', 'O', 'X', 'X', 'X'): 'B',
+    ('O', 'O', 'X', 'X', 'X', 'X'): 'C', ('O', 'O', 'X', 'O', 'X', 'X'): 'D',
+    ('O', 'X', 'X', 'O', 'X', 'X'): 'E', ('O', 'O', 'O', 'X', 'X', 'X'): 'F',
+    ('O', 'O', 'O', 'O', 'X', 'X'): 'G', ('O', 'X', 'O', 'O', 'X', 'X'): 'H',
+    ('X', 'O', 'O', 'X', 'X', 'X'): 'I', ('X', 'O', 'O', 'O', 'X', 'X'): 'J',
+    ('O', 'X', 'X', 'X', 'O', 'X'): 'K', ('O', 'X', 'O', 'X', 'O', 'X'): 'L',
+    ('O', 'O', 'X', 'X', 'O', 'X'): 'M', ('O', 'O', 'X', 'O', 'O', 'X'): 'N',
+    ('O', 'X', 'X', 'O', 'O', 'X'): 'O', ('O', 'O', 'O', 'X', 'O', 'X'): 'P',
+    ('O', 'O', 'O', 'O', 'O', 'X'): 'Q', ('O', 'X', 'O', 'O', 'O', 'X'): 'R',
+    ('X', 'O', 'O', 'X', 'O', 'X'): 'S', ('X', 'O', 'O', 'O', 'O', 'X'): 'T',
+    ('O', 'X', 'X', 'X', 'O', 'O'): 'U', ('O', 'X', 'O', 'X', 'O', 'O'): 'V',
+    ('X', 'O', 'O', 'O', 'X', 'O'): 'W', ('O', 'O', 'X', 'X', 'O', 'O'): 'X',
+    ('O', 'O', 'X', 'O', 'O', 'O'): 'Y', ('O', 'X', 'X', 'O', 'O', 'O'): 'Z'
+}
+
+# Example usage
+ejemplo1 = get_string('./braille/hola.png')
+result = generate_letters(ejemplo1)
+word = generate_word(result)
+print(word) # Expected output: "hola"
+
+ejemplo2 = get_string('./braille/taco.png')
+result2 = generate_letters(ejemplo2)
+word2 = generate_word(result2)
+print(word2) # Expected output: "taco"
