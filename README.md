@@ -3,8 +3,8 @@ Translation from braille to text using image processing.
 
 # Running the program
 Follow the next steps:
-1- Use git clone to clonate the repository
-2- In case you have a MAC you can directly execute the program. Otherwise you will need to change the path in the program to 'hola.png' and 'taco.png'
+1. Use git clone to clonate the repository
+2. In case you have a MAC you can directly execute the program. Otherwise you will need to change the path in the program to 'hola.png' and 'taco.png'
 
 # get_string function
 This function reads an image, applies preprocessing, shows each image in their filtering process and finally extracts the text.
