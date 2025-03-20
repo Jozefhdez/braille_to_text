@@ -63,7 +63,7 @@ def generate_letters(braille: str) -> list[list[str]]:
         if i != " " and i != "\n":
             plain_text += i
     
-    # Construct the matrix
+    # Construct the matrix with braille code
     index_matrix = 0
     for i in range(0, letter_count * 2, 2):
         word_matrix[index_matrix].append(plain_text[i])
