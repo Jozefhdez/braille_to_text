@@ -9,7 +9,7 @@ def get_string(path: str) -> str:
     """
     img = cv.imread(path, 0)
     assert img is not None, "The file could not be read. Check the path."
-    
+
     # Apply thresholding to enhance contrast
     _, img_thresholded = cv.threshold(img, 70, 255, cv.THRESH_BINARY_INV)
     
@@ -120,13 +120,13 @@ braille_dict = {
 
 # Example usage
 # In case using windows, change the path to: 'hola.png'
-ejemplo1 = get_string('./braille/hola.png')
+ejemplo1 = get_string('./braille_to_text/hola.png')
 result = generate_letters(ejemplo1)
 word = generate_word(result)
 print(word) # Expected output: "hola"
 
 # In case using windows, change the path to: 'taco.png'
-ejemplo2 = get_string('./braille/taco.png')
+ejemplo2 = get_string('./braille_to_text/taco.png')
 result2 = generate_letters(ejemplo2)
 word2 = generate_word(result2)
 print(word2) # Expected output: "taco"
