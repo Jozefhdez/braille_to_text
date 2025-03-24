@@ -120,13 +120,13 @@ braille_dict = {
 
 # Example usage
 # In case using windows, change the path to: 'hola.png'
-example_1 = get_string('./braille_to_text/hola.png')
+example_1 = get_string('hola.png')
 result_1 = generate_letters(example_1)
 word_1 = generate_word(result_1)
 print(word_1) # Expected output: "HOLA"
 
 # In case using windows, change the path to: 'taco.png'
-example_2 = get_string('./braille_to_text/taco.png')
+example_2 = get_string('taco.png')
 result_2 = generate_letters(example_2)
 word_2 = generate_word(result_2)
 print(word_2) # Expected output: "TACO"
